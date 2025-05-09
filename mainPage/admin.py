@@ -1,5 +1,5 @@
 from django.contrib import admin
 
-from .models import Attacks
+from .models import Incidents
 
-admin.site.register(Attacks)
+admin.site.register(Incidents)

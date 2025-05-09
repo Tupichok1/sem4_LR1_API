@@ -2,19 +2,19 @@ from rest_framework.generics import ListAPIView, ListCreateAPIView, RetrieveUpda
 from rest_framework.permissions import AllowAny
 
 from .permissions import IsAuthorOrRead
-from .models import Attacks
+from .models import Incidents
 from .serializers import AttacksSerializer, UpdateAttack
 
 class AllAttacks(ListAPIView):
     permission_classes = (AllowAny, )
-    queryset = Attacks.objects.all()
+    queryset = Incidents.objects.all()
     serializer_class = AttacksSerializer
 
 class CreateNote(ListCreateAPIView):
-    queryset = Attacks.objects.all()
+    queryset = Incidents.objects.all()
     serializer_class = AttacksSerializer
 
 class UpdateDeleteNote(RetrieveUpdateDestroyAPIView):
     permission_classes = (IsAuthorOrRead, )
-    queryset = Attacks.objects.all()
+    queryset = Incidents.objects.all()
     serializer_class = UpdateAttack
